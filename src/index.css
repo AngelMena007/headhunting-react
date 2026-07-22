@@ -1,0 +1,34 @@
+/* Estilos originales del proyecto HeadHunting, migrados tal cual */
+@import "./assets/css/styles.css";
+@import "./assets/css/estilo.css";
+@import "./assets/css/estilosr.css";
+@import "./assets/css/styled.css";
+
+/* Estilos extra agregados para el formulario de perfil del dashboard */
+.perfil {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.perfil .foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perfil .circulo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.btn-action {
+  cursor: pointer;
+  margin: 0 0.4rem;
+}
