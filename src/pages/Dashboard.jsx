@@ -14,13 +14,21 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const usuario = auth.currentUser;
 
+  // Función corregida para redirigir a la landing page ("/")
   const cerrarSesion = async () => {
     try {
       await cerrarSesionAuth();
-      navigate("/login");
+      navigate("/"); // <-- Cambio de "/login" a "/"
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
+  };
+
+  // Función para manejar el scroll manual sin romper el HashRouter
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -40,8 +48,10 @@ const Dashboard = () => {
           id="menuLateral"
           style={{ width: "280px", height: "100vh" }}
         >
+          {/* Cambiamos href="/" por onClick redirigiendo al inicio */}
           <a
             href="/"
+            onClick={(e) => { e.preventDefault(); navigate("/"); }}
             className="d-flex flex-column align-items-center justify-content-center text-center my-3 text-decoration-none text-dark"
           >
             <img src={logo} alt="Logo HeadHunting" width="130" height="80" className="mb-2" />
@@ -49,22 +59,22 @@ const Dashboard = () => {
           <hr className="mt-0" />
           <ul className="nav nav-pills flex-column mb-auto">
             <li className="nav-item">
-              <a href="#panel-principal" className="nav-link active" aria-current="page">
+              <a href="#panel-principal" onClick={(e) => handleScroll(e, 'panel-principal')} className="nav-link active" aria-current="page">
                 Panel Principal
               </a>
             </li>
             <li>
-              <a href="#candidatos" className="nav-link text-dark">
+              <a href="#candidatos" onClick={(e) => handleScroll(e, 'candidatos')} className="nav-link text-dark">
                 Candidatos (Usuarios)
               </a>
             </li>
             <li>
-              <a href="#vacantes" className="nav-link text-dark">
+              <a href="#vacantes" onClick={(e) => handleScroll(e, 'vacantes')} className="nav-link text-dark">
                 Vacantes
               </a>
             </li>
             <li>
-              <a href="#configuracion" className="nav-link text-dark">
+              <a href="#configuracion" onClick={(e) => handleScroll(e, 'configuracion')} className="nav-link text-dark">
                 Configuración
               </a>
             </li>
@@ -73,6 +83,7 @@ const Dashboard = () => {
           <div className="dropdown">
             <a
               href="#"
+              onClick={(e) => e.preventDefault()} // Prevenimos el salto de página en el dropdown
               className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
               id="dropdownUser1"
               data-bs-toggle="dropdown"
@@ -85,12 +96,12 @@ const Dashboard = () => {
             </a>
             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
               <li>
-                <a className="dropdown-item" href="#configuracion">
+                <a className="dropdown-item" href="#configuracion" onClick={(e) => handleScroll(e, 'configuracion')}>
                   Editar perfil
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#configuracion">
+                <a className="dropdown-item" href="#configuracion" onClick={(e) => handleScroll(e, 'configuracion')}>
                   Actualizar contraseña
                 </a>
               </li>
