@@ -96,19 +96,6 @@ const Dashboard = () => {
             </a>
             <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
               <li>
-                <a className="dropdown-item" href="#configuracion" onClick={(e) => handleScroll(e, 'configuracion')}>
-                  Editar perfil
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#configuracion" onClick={(e) => handleScroll(e, 'configuracion')}>
-                  Actualizar contraseña
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
                 <button className="dropdown-item" type="button" onClick={cerrarSesion}>
                   Cerrar Sesión
                 </button>
