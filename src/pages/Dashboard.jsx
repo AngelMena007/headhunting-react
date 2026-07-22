@@ -14,11 +14,10 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const usuario = auth.currentUser;
 
-  // Función corregida para redirigir a la landing page ("/")
   const cerrarSesion = async () => {
     try {
       await cerrarSesionAuth();
-      navigate("/"); // <-- Cambio de "/login" a "/"
+      navigate("/"); // De: "/login" a "/"
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
     }
@@ -48,7 +47,6 @@ const Dashboard = () => {
           id="menuLateral"
           style={{ width: "280px", height: "100vh" }}
         >
-          {/* Cambiamos href="/" por onClick redirigiendo al inicio */}
           <a
             href="/"
             onClick={(e) => { e.preventDefault(); navigate("/"); }}
@@ -83,7 +81,7 @@ const Dashboard = () => {
           <div className="dropdown">
             <a
               href="#"
-              onClick={(e) => e.preventDefault()} // Prevenimos el salto de página en el dropdown
+              onClick={(e) => e.preventDefault()}
               className="d-flex align-items-center text-dark text-decoration-none dropdown-toggle"
               id="dropdownUser1"
               data-bs-toggle="dropdown"

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
+import VacantesPublicas from "../components/VacantesPublicas";
 import imagenMain from "../assets/imgs/Imagen Main.png";
 import servicio1 from "../assets/imgs/servicio1.jpg";
 import servicio2 from "../assets/imgs/servicio2.jpeg";
@@ -127,6 +128,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <VacantesPublicas />
 
       <section className="servicios" id="servicios">
         <h2 className="servicios-titulo">SERVICIOS QUE OFRECEMOS</h2>
